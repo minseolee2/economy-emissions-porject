@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Datasets </title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="logo">
+                ECONOMY & EMISSIONS
+            </div>
+
+            <div>
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/data">Data</a>
+                <a href="/visualizations">Visualizations</a>
+                <a href="/tracking">Tracking</a>               
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Datasets used in this project</h1>
+
+            <div class="card">
+                <h2>Greenhouse Gas Emissions</h2>
+                <p>
+                    <strong>Source:</strong> UNFCCC (United Nations Framework Convention on Climate Change)
+                </p>
+                <p>
+                    This dataset contains country-level greenhouse gas emissions data collected by the UNFCCC.
+                    For this projects, certain years were used to match other datasets.
+                    Countries that have missing values were removed to ensure the consistency across datasets.
+                </p>
+                <p>
+                    Link: <a href="https://unfccc.int/topics/mitigation/resources/registry-and-data/ghg-data-from-unfccc">GHG data from UNFCCC</a>
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Gross Domestic Product (GDP)</h2>
+                <p>
+                    <strong>Source:</strong> World Bank - World Development Indicators (WDI) 
+                </p>
+                <p>
+                    This dataset provides GDP data for countries worldwide.
+                    The data was filtered to include only the years and countries that overlap with the Greenhouse Gas Emissions dataset.
+                    Country name was standardized to ensure accurate merging with other datasets. 
+                </p>
+                <p>
+                    
+                </p>
+            </div>
+            
+            <div class="card">
+                <h2>Population</h2>
+                <p>
+                    <strong>Source:</strong> UN Data / World Bank WDI 
+                </p>
+                <p>
+                    This dataset contains population data for each country. 
+                    It was used to calculate GDP per capita and greenhouse gas per capita.
+                    The dataset was cleaned and aligned with GDP and Greenhouse Gas Emissions datasets to ensure consistency. 
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Sample Data from Database</h2>
+                <table>
+                    <tr>
+                        <th>Country</th>
+                        <th>Year</th>
+                        <th>GDP</th>
+                        <th>Population</th>
+                        <th>GHG</th>
+                    </tr>                 
+                    {% for row in data %}
+
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                    </tr> 
+
+                    {% endfor %}                     
+                </table>
+            </div>
+
+        </div>
+    </body>
+</html>

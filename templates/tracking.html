@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tracking</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+
+    <body>
+        <div class="navbar">
+            <div class="logo">
+                ECONOMY & EMISSIONS
+            </div>
+
+            <div>
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/data">Data</a>
+                <a href="/visualizations">Visualizations</a>
+                <a href="/tracking">Tracking</a>               
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Page Visit Tracking</h1>
+            <div class="card">
+                <h2>Website Traffic Summary</h2>
+                <p>This table shows how many times each page has been visited</p>
+
+                <table>
+                    <tr>
+                        <th>Page</th>
+                        <th>Visits</th>
+                    </tr>
+
+                    {% for row in tracking_data %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+    </body>
+</html>
