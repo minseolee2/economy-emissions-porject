@@ -40,7 +40,7 @@ def data():
     conn.commit()
     conn.close()
     return render_template("data.html", data=data)
-
+                           
 @app.route("/visualizations")
 def visualizations():
     conn = sqlite3.connect("stage2_data_analysis/database.db")
